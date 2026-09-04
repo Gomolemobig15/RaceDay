@@ -1,1 +1,1 @@
-docs/ERD.pdf
+docs/APIEndpointPlan.pdf
