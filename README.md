@@ -1,47 +1,52 @@
-INSERT INTO Events
+INSERT INTO Categories
 (
-    OrganiserID,
-    VenueID,
-    EventName,
-    Description,
-    EventType,
-    EventDate,
-    StartTime,
-    RegistrationDeadline,
-    Status
+    EventID,
+    CategoryName,
+    DistanceKm,
+    EntryFee,
+    MaximumParticipants
 )
 VALUES
 (
     1,
-    1,
-    'Joburg Spring Run',
-    'Road running event in Johannesburg.',
-    'Running',
-    '2026-10-10',
-    '07:00',
-    '2026-10-01',
-    'Open'
-),
-(
-    2,
-    2,
-    'Cape Active Cycle Day',
-    'Road cycling event in Cape Town.',
-    'Cycling',
-    '2026-11-15',
-    '06:30',
-    '2026-11-01',
-    'Open'
+    '10 km Run',
+    10.00,
+    150.00,
+    500
 ),
 (
     1,
+    '5 km Fun Run',
+    5.00,
+    80.00,
+    300
+),
+(
+    2,
+    '40 km Road Race',
+    40.00,
+    250.00,
+    400
+),
+(
+    2,
+    '20 km Social Ride',
+    20.00,
+    150.00,
+    300
+),
+(
     3,
-    'Durban Beachfront Walk',
-    'Community walking event along the Durban beachfront.',
-    'Walking',
-    '2026-12-05',
-    '08:00',
-    '2026-11-25',
-    'Open'
+    '10 km Beach Walk',
+    10.00,
+    100.00,
+    250
+),
+(
+    3,
+    '5 km Family Walk',
+    5.00,
+    60.00,
+    200
 );
 GO
