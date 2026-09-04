@@ -1,27 +1,31 @@
-INSERT INTO Users
+INSERT INTO Venues
 (
-    FirstName,
-    LastName,
-    Email,
-    PasswordHash,
-    Role,
-    PhoneNumber
+    VenueName,
+    Address,
+    City,
+    Province,
+    PostalCode
 )
 VALUES
 (
-    'Thabo',
-    'Mokoena',
-    'thabo.mokoena@example.com',
-    'PLACEHOLDER_HASH_3',
-    'Participant',
-    '0843333333'
+    'Emmarentia Sports Grounds',
+    'Olifants Road',
+    'Johannesburg',
+    'Gauteng',
+    '2195'
 ),
 (
-    'Ayanda',
-    'Nkosi',
-    'ayanda.nkosi@example.com',
-    'PLACEHOLDER_HASH_4',
-    'Participant',
-    '0854444444'
+    'Green Point Athletics Stadium',
+    'Vlei Road',
+    'Cape Town',
+    'Western Cape',
+    '8051'
+),
+(
+    'Golden Mile Race Village',
+    'Snell Parade',
+    'Durban',
+    'KwaZulu-Natal',
+    '4001'
 );
 GO
