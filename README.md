@@ -1,31 +1,35 @@
-INSERT INTO Routes
-(
-    EventID,
-    RouteName,
-    DistanceKm,
-    RouteDescription,
-    RouteURL
-)
-VALUES
-(
-    1,
-    'Joburg Spring 10K Route',
-    10.00,
-    'Road route through the Johannesburg event area.',
-    'https://example.com/routes/joburg-spring-10k'
-),
-(
-    2,
-    'Cape Active 40K Route',
-    40.00,
-    'Road cycling route through the Cape Town event area.',
-    'https://example.com/routes/cape-active-40k'
-),
-(
-    3,
-    'Durban Beachfront Walk Route',
-    10.00,
-    'Walking route along the Durban beachfront.',
-    'https://example.com/routes/durban-beachfront-walk'
-);
-GO
+name: RaceDay Part 1 Validation
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify required Part 1 files
+        shell: bash
+        run: |
+          set -e
+
+          test -d docs
+          test -f docs/ERD.pdf
+          test -f docs/APIEndpointPlan.pdf
+          test -f docs/RaceDayDatabase.sql
+          test -f README.md
+
+          grep -q "CREATE DATABASE" docs/RaceDayDatabase.sql
+          grep -q "CREATE TABLE Users" docs/RaceDayDatabase.sql
+          grep -q "CREATE TABLE Events" docs/RaceDayDatabase.sql
+          grep -q "CREATE TABLE Categories" docs/RaceDayDatabase.sql
+          grep -q "CREATE TABLE Enrolments" docs/RaceDayDatabase.sql
+          grep -q "CREATE TABLE Results" docs/RaceDayDatabase.sql
+
+          echo "RaceDay Part 1 validation passed."
