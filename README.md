@@ -1,1 +1,6 @@
-docs/APIEndpointPlan.pdf
+docs/RaceDayDatabase.sql
+CREATE DATABASE RaceDayDB;
+GO
+
+USE RaceDayDB;
+GO
