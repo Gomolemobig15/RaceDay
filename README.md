@@ -1,3 +1,1 @@
-docs
-.github
-.github/workflows
+docs/ERD.pdf
