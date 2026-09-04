@@ -1,17 +1,27 @@
-CREATE TABLE Routes
+INSERT INTO Users
 (
-    RouteID INT IDENTITY(1,1) PRIMARY KEY,
-    EventID INT NOT NULL,
-    RouteName NVARCHAR(150) NOT NULL,
-    DistanceKm DECIMAL(6,2) NOT NULL,
-    RouteDescription NVARCHAR(1000),
-    RouteURL NVARCHAR(500),
-
-    CONSTRAINT FK_Routes_Event
-        FOREIGN KEY (EventID)
-        REFERENCES Events(EventID),
-
-    CONSTRAINT UQ_Routes_Event
-        UNIQUE (EventID)
+    FirstName,
+    LastName,
+    Email,
+    PasswordHash,
+    Role,
+    PhoneNumber
+)
+VALUES
+(
+    'Nomsa',
+    'Dlamini',
+    'nomsa.dlamini@raceday.co.za',
+    'PLACEHOLDER_HASH_1',
+    'Organiser',
+    '0821111111'
+),
+(
+    'Johan',
+    'van Wyk',
+    'johan.vanwyk@raceday.co.za',
+    'PLACEHOLDER_HASH_2',
+    'Organiser',
+    '0832222222'
 );
 GO
