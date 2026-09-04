@@ -9,19 +9,19 @@ INSERT INTO Users
 )
 VALUES
 (
-    'Nomsa',
-    'Dlamini',
-    'nomsa.dlamini@raceday.co.za',
-    'PLACEHOLDER_HASH_1',
-    'Organiser',
-    '0821111111'
+    'Thabo',
+    'Mokoena',
+    'thabo.mokoena@example.com',
+    'PLACEHOLDER_HASH_3',
+    'Participant',
+    '0843333333'
 ),
 (
-    'Johan',
-    'van Wyk',
-    'johan.vanwyk@raceday.co.za',
-    'PLACEHOLDER_HASH_2',
-    'Organiser',
-    '0832222222'
+    'Ayanda',
+    'Nkosi',
+    'ayanda.nkosi@example.com',
+    'PLACEHOLDER_HASH_4',
+    'Participant',
+    '0854444444'
 );
 GO
