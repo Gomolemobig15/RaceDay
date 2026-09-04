@@ -1,52 +1,33 @@
-INSERT INTO Categories
+INSERT INTO Enrolments
 (
-    EventID,
-    CategoryName,
-    DistanceKm,
-    EntryFee,
-    MaximumParticipants
+    ParticipantID,
+    CategoryID,
+    Status,
+    RaceNumber
 )
 VALUES
 (
+    3,
     1,
-    '10 km Run',
-    10.00,
-    150.00,
-    500
-),
-(
-    1,
-    '5 km Fun Run',
-    5.00,
-    80.00,
-    300
-),
-(
-    2,
-    '40 km Road Race',
-    40.00,
-    250.00,
-    400
-),
-(
-    2,
-    '20 km Social Ride',
-    20.00,
-    150.00,
-    300
+    'Confirmed',
+    'R001'
 ),
 (
     3,
-    '10 km Beach Walk',
-    10.00,
-    100.00,
-    250
+    3,
+    'Confirmed',
+    'C001'
 ),
 (
-    3,
-    '5 km Family Walk',
-    5.00,
-    60.00,
-    200
+    4,
+    2,
+    'Confirmed',
+    'R002'
+),
+(
+    4,
+    5,
+    'Confirmed',
+    'W001'
 );
 GO
