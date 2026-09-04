@@ -1,29 +1,17 @@
-CREATE TABLE Events
+CREATE TABLE Categories
 (
-    EventID INT IDENTITY(1,1) PRIMARY KEY,
-    OrganiserID INT NOT NULL,
-    VenueID INT NOT NULL,
-    EventName NVARCHAR(150) NOT NULL,
-    Description NVARCHAR(1000),
-    EventType NVARCHAR(20) NOT NULL,
-    EventDate DATE NOT NULL,
-    StartTime TIME NOT NULL,
-    RegistrationDeadline DATE NOT NULL,
-    Status NVARCHAR(20) NOT NULL,
-    CreatedAt DATETIME2 NOT NULL DEFAULT GETDATE(),
+    CategoryID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    CategoryName NVARCHAR(100) NOT NULL,
+    DistanceKm DECIMAL(6,2) NOT NULL,
+    EntryFee DECIMAL(10,2) NOT NULL DEFAULT 0,
+    MaximumParticipants INT,
 
-    CONSTRAINT FK_Events_Organiser
-        FOREIGN KEY (OrganiserID)
-        REFERENCES Users(UserID),
+    CONSTRAINT FK_Categories_Event
+        FOREIGN KEY (EventID)
+        REFERENCES Events(EventID),
 
-    CONSTRAINT FK_Events_Venue
-        FOREIGN KEY (VenueID)
-        REFERENCES Venues(VenueID),
-
-    CONSTRAINT CK_Events_Type
-        CHECK (EventType IN ('Running', 'Walking', 'Cycling')),
-
-    CONSTRAINT CK_Events_Status
-        CHECK (Status IN ('Open', 'Closed', 'Completed', 'Cancelled'))
+    CONSTRAINT UQ_Categories_Event_Name
+        UNIQUE (EventID, CategoryName)
 );
 GO
