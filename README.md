@@ -1,16 +1,10 @@
-docs/RaceDayDatabase.sql
-CREATE TABLE Users
+CREATE TABLE Venues
 (
-    UserID INT IDENTITY(1,1) PRIMARY KEY,
-    FirstName NVARCHAR(50) NOT NULL,
-    LastName NVARCHAR(50) NOT NULL,
-    Email NVARCHAR(120) NOT NULL UNIQUE,
-    PasswordHash NVARCHAR(255) NOT NULL,
-    Role NVARCHAR(20) NOT NULL,
-    PhoneNumber NVARCHAR(20),
-    CreatedAt DATETIME2 NOT NULL DEFAULT GETDATE(),
-
-    CONSTRAINT CK_Users_Role
-        CHECK (Role IN ('Organiser', 'Participant'))
+    VenueID INT IDENTITY(1,1) PRIMARY KEY,
+    VenueName NVARCHAR(120) NOT NULL,
+    Address NVARCHAR(200) NOT NULL,
+    City NVARCHAR(80) NOT NULL,
+    Province NVARCHAR(80) NOT NULL,
+    PostalCode NVARCHAR(10)
 );
 GO
