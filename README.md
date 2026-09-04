@@ -1,17 +1,17 @@
-CREATE TABLE Results
+CREATE TABLE Routes
 (
-    ResultID INT IDENTITY(1,1) PRIMARY KEY,
-    EnrolmentID INT NOT NULL,
-    FinishTime TIME NOT NULL,
-    Position INT,
-    ResultStatus NVARCHAR(20) NOT NULL DEFAULT 'Finished',
-    RecordedAt DATETIME2 NOT NULL DEFAULT GETDATE(),
+    RouteID INT IDENTITY(1,1) PRIMARY KEY,
+    EventID INT NOT NULL,
+    RouteName NVARCHAR(150) NOT NULL,
+    DistanceKm DECIMAL(6,2) NOT NULL,
+    RouteDescription NVARCHAR(1000),
+    RouteURL NVARCHAR(500),
 
-    CONSTRAINT FK_Results_Enrolment
-        FOREIGN KEY (EnrolmentID)
-        REFERENCES Enrolments(EnrolmentID),
+    CONSTRAINT FK_Routes_Event
+        FOREIGN KEY (EventID)
+        REFERENCES Events(EventID),
 
-    CONSTRAINT UQ_Results_Enrolment
-        UNIQUE (EnrolmentID)
+    CONSTRAINT UQ_Routes_Event
+        UNIQUE (EventID)
 );
 GO
