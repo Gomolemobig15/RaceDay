@@ -33,3 +33,4 @@ jobs:
           grep -q "CREATE TABLE Results" docs/RaceDayDatabase.sql
 
           echo "RaceDay Part 1 validation passed."
+          Part 1 documentation and validation in progress.
