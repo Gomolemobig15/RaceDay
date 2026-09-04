@@ -1,33 +1,21 @@
-INSERT INTO Enrolments
+INSERT INTO Results
 (
-    ParticipantID,
-    CategoryID,
-    Status,
-    RaceNumber
+    EnrolmentID,
+    FinishTime,
+    Position,
+    ResultStatus
 )
 VALUES
 (
-    3,
     1,
-    'Confirmed',
-    'R001'
+    '00:52:35',
+    12,
+    'Finished'
 ),
 (
     3,
-    3,
-    'Confirmed',
-    'C001'
-),
-(
-    4,
-    2,
-    'Confirmed',
-    'R002'
-),
-(
-    4,
-    5,
-    'Confirmed',
-    'W001'
+    '00:25:40',
+    8,
+    'Finished'
 );
 GO
