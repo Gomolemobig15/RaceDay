@@ -1,21 +1,17 @@
-CREATE TABLE Enrolments
+CREATE TABLE Results
 (
-    EnrolmentID INT IDENTITY(1,1) PRIMARY KEY,
-    ParticipantID INT NOT NULL,
-    CategoryID INT NOT NULL,
-    EnrolmentDate DATETIME2 NOT NULL DEFAULT GETDATE(),
-    Status NVARCHAR(20) NOT NULL DEFAULT 'Confirmed',
-    RaceNumber NVARCHAR(20),
+    ResultID INT IDENTITY(1,1) PRIMARY KEY,
+    EnrolmentID INT NOT NULL,
+    FinishTime TIME NOT NULL,
+    Position INT,
+    ResultStatus NVARCHAR(20) NOT NULL DEFAULT 'Finished',
+    RecordedAt DATETIME2 NOT NULL DEFAULT GETDATE(),
 
-    CONSTRAINT FK_Enrolments_Participant
-        FOREIGN KEY (ParticipantID)
-        REFERENCES Users(UserID),
+    CONSTRAINT FK_Results_Enrolment
+        FOREIGN KEY (EnrolmentID)
+        REFERENCES Enrolments(EnrolmentID),
 
-    CONSTRAINT FK_Enrolments_Category
-        FOREIGN KEY (CategoryID)
-        REFERENCES Categories(CategoryID),
-
-    CONSTRAINT UQ_Enrolments_Participant_Category
-        UNIQUE (ParticipantID, CategoryID)
+    CONSTRAINT UQ_Results_Enrolment
+        UNIQUE (EnrolmentID)
 );
 GO
