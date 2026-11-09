@@ -46,7 +46,6 @@ public class ProfilesController : ControllerBase
 
         return Ok(user);
     }
-
     [HttpPut("me")]
     public async Task<IActionResult> UpdateMyProfile(
         UpdateMyProfileRequest request)
