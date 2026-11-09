@@ -228,7 +228,6 @@ public class CategoriesController : ControllerBase
         return Ok(new { message = "Category deleted successfully." });
     }
 }
-
 public class CategoryRequest
 {
     [System.ComponentModel.DataAnnotations.Required]
