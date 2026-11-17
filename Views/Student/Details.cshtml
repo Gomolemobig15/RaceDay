@@ -1,0 +1,62 @@
+﻿@model StudentProfile.Models.Student
+
+@{
+    ViewData["Title"] = "Student Details Form";
+}
+
+<div class="container mt-5">
+    <h1>Student Details Form</h1>
+    <p>Please enter your student information below.</p>
+
+    <form asp-controller="Student"
+          asp-action="Results"
+          method="post">
+
+        <div asp-validation-summary="All"
+             class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="StudentNumber"
+                   class="form-label">Student Number</label>
+            <input asp-for="StudentNumber"
+                   class="form-control" />
+            <span asp-validation-for="StudentNumber"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="FullName"
+                   class="form-label">Full Name</label>
+            <input asp-for="FullName"
+                   class="form-control" />
+            <span asp-validation-for="FullName"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Qualification"
+                   class="form-label">Qualification</label>
+            <input asp-for="Qualification"
+                   class="form-control" />
+            <span asp-validation-for="Qualification"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DreamJob"
+                   class="form-label">Dream Job</label>
+            <input asp-for="DreamJob"
+                   class="form-control" />
+            <span asp-validation-for="DreamJob"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Submit
+        </button>
+
+        <button type="reset" class="btn btn-secondary">
+            Cancel
+        </button>
+    </form>
+</div>

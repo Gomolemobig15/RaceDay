@@ -1,0 +1,39 @@
+﻿@model StudentProfile.Models.Student
+
+@{
+    ViewData["Title"] = "Student Profile Results";
+}
+
+<div class="container mt-5">
+    <h1>Student Profile Results</h1>
+
+    <p>Your information was submitted successfully.</p>
+
+    <hr />
+
+    <p>
+        <strong>Student Number:</strong>
+        @Model.StudentNumber
+    </p>
+
+    <p>
+        <strong>Full Name:</strong>
+        @Model.FullName
+    </p>
+
+    <p>
+        <strong>Qualification:</strong>
+        @Model.Qualification
+    </p>
+
+    <p>
+        <strong>Dream Job:</strong>
+        @Model.DreamJob
+    </p>
+
+    <a asp-controller="Student"
+       asp-action="Details"
+       class="btn btn-primary">
+        Back to Form
+    </a>
+</div>
