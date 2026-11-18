@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Event Details";
+}
+
+<div class="container mt-4">
+    <h2 class="fw-bold">Event Details</h2>
+    <p class="text-muted">View information about this RaceDay event.</p>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p><strong>Event ID:</strong> @ViewBag.EventID</p>
+
+            <div class="alert alert-info">
+                Event information will be displayed here when connected to the API.
+            </div>
+
+            <a asp-action="Events" class="btn btn-outline-secondary">
+                Back to Events
+            </a>
+        </div>
+    </div>
+</div>
