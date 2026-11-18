@@ -1,0 +1,81 @@
+﻿@model RaceDay.Mvc.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h2 class="text-center text-primary mb-4">
+                    Join RaceDay
+                </h2>
+
+                <form asp-action="Register" method="post">
+                    <div asp-validation-summary="All"
+                         class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="FirstName"></label>
+                        <input asp-for="FirstName"
+                               class="form-control" />
+                        <span asp-validation-for="FirstName"
+                              class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName"
+                               class="form-control" />
+                        <span asp-validation-for="LastName"
+                              class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email"
+                               class="form-control" />
+                        <span asp-validation-for="Email"
+                              class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                        <span asp-validation-for="Password"
+                              class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="PhoneNumber">
+                            Phone Number
+                        </label>
+                        <input asp-for="PhoneNumber"
+                               class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Role">
+                            Register As
+                        </label>
+                        <select asp-for="Role" class="form-select">
+                            <option value="Participant">Participant</option>
+                            <option value="Organiser">Organiser</option>
+                        </select>
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-primary w-100">
+                        Create Account
+                    </button>
+
+                    <p class="text-center mt-3">
+                        Already registered?
+                        <a asp-action="Login">Sign in</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

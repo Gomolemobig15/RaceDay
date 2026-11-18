@@ -1,0 +1,54 @@
+﻿@model RaceDay.Mvc.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow p-4">
+                <h2 class="text-center text-primary mb-4">
+                    Welcome Back
+                </h2>
+
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Success"]
+                    </div>
+                }
+
+                <form asp-action="Login" method="post">
+                    <div asp-validation-summary="All"
+                         class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email"
+                               class="form-control" />
+                        <span asp-validation-for="Email"
+                              class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                        <span asp-validation-for="Password"
+                              class="text-danger"></span>
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-primary w-100">
+                        Sign In
+                    </button>
+
+                    <p class="text-center mt-3">
+                        Don't have an account?
+                        <a asp-action="Register">Register</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

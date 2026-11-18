@@ -1,0 +1,156 @@
+﻿```cshtml
+@model List<RaceDay.Mvc.Models.OrganiserEventViewModel>
+
+@{
+    ViewData["Title"] = "My Events";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold">My Events</h2>
+            <p class="text-muted">Manage your RaceDay events.</p>
+        </div>
+
+        <div>
+            <a href="/Organiser/Create" class="btn btn-primary">
+                + Create New Event
+            </a>
+
+            <a href="/Organiser/Dashboard" class="btn btn-outline-secondary">
+                Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Your Events</h5>
+            <h2 class="fw-bold">@Model.Count</h2>
+            <p class="text-muted mb-0">Total events created</p>
+        </div>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-info">
+            You haven't created any events yet.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+
+                    <div class="card h-100 shadow-sm">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title fw-bold">
+                                @item.EventName
+                            </h5>
+
+                            <p class="text-muted">
+                                @item.Description
+                            </p>
+
+                            <p>
+                                <strong>Event type:</strong>
+                                @item.EventType
+                            </p>
+
+                            <p>
+                                <strong>Date:</strong>
+                                @item.EventDate.ToString("dd MMM yyyy")
+                            </p>
+
+                            <p>
+                                <strong>Start time:</strong>
+                                @item.StartTime
+                            </p>
+
+                            <p>
+                                <strong>Registration deadline:</strong>
+                                @item.RegistrationDeadline.ToString("dd MMM yyyy")
+                            </p>
+
+                            <p>
+                                <strong>Venue:</strong>
+                                @(item.Venue?.VenueName ?? "No venue")
+                            </p>
+
+                            <p>
+                                <strong>Location:</strong>
+                                @(item.Venue == null
+                                    ? "Not available"
+                                    : $"{item.Venue.City}, {item.Venue.Province}")
+                            </p>
+
+                            <p>
+                                <strong>Status:</strong>
+
+                                <span class="badge bg-success">
+                                    @item.Status
+                                </span>
+                            </p>
+
+                            <hr />
+
+                            <strong>Categories</strong>
+
+                            @if (item.Categories == null || item.Categories.Count == 0)
+                            {
+                                <p class="text-muted">
+                                    No categories added yet.
+                                </p>
+                            }
+                            else
+                            {
+                                <ul>
+                                    @foreach (var category in item.Categories)
+                                    {
+                                        <li>
+                                            @category.CategoryName
+                                            (@category.DistanceKm km)
+                                        </li>
+                                    }
+                                </ul>
+                            }
+
+                            <hr />
+
+                            <a href="@Url.Action("Categories", "Organiser", new { eventId = item.EventID })"
+                               class="btn btn-outline-primary w-100">
+                                Manage Categories
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    }
+
+</div>
+```

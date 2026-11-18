@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Edit Event";
+}
+
+<div class="container mt-4 mb-5">
+    <h2 class="fw-bold">Edit Event</h2>
+    <p class="text-muted">Update your event information.</p>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form asp-controller="Organiser" asp-action="Edit"
+                  method="post" enctype="multipart/form-data">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" name="EventID" value="@ViewBag.EventID" />
+
+                <div class="mb-3">
+                    <label class="form-label">Event Name</label>
+                    <input name="EventName" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="Description" class="form-control" rows="3"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Event Date</label>
+                    <input name="EventDate" type="date" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Event Banner</label>
+                    <input name="BannerImage" type="file" class="form-control"
+                           accept=".jpg,.jpeg,.png,.webp" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a asp-action="Events" class="btn btn-outline-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

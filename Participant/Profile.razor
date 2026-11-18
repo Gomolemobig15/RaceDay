@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="container mt-4 mb-5">
+    <h2 class="fw-bold">My Profile</h2>
+    <p class="text-muted">Manage your RaceDay account information.</p>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="FullName" class="form-control"
+                           placeholder="Enter your full name" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" name="Phone" class="form-control"
+                           placeholder="Enter your phone number" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Profile Picture</label>
+                    <input type="file" name="ProfileImage" class="form-control"
+                           accept=".jpg,.jpeg,.png,.webp" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+<h3>Profile</h3>
+
+@code {
+
+}

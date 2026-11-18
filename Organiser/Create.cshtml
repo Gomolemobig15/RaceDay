@@ -1,0 +1,114 @@
+﻿
+@model RaceDay.Mvc.Models.CreateEventViewModel
+
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<div class="container mt-4 mb-5">
+
+    <div class="mb-4">
+        <h2 class="fw-bold">Create New Event</h2>
+        <p class="text-muted">Add a new running, walking or cycling event to RaceDay.</p>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+
+            <form asp-controller="Organiser" asp-action="Create"
+                  method="post" enctype="multipart/form-data">
+
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="EventName" class="form-label">Event Name</label>
+                    <input asp-for="EventName" class="form-control"
+                           placeholder="Example: Johannesburg City Run" />
+                    <span asp-validation-for="EventName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control"
+                              rows="3" placeholder="Describe your event..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="EventType" class="form-label">Event Type</label>
+                    <select asp-for="EventType" class="form-select">
+                        <option value="Running">Running</option>
+                        <option value="Walking">Walking</option>
+                        <option value="Cycling">Cycling</option>
+                    </select>
+                    <span asp-validation-for="EventType" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="VenueID" class="form-label">Venue</label>
+                    <select asp-for="VenueID" asp-items="Model.Venues" class="form-select">
+                        <option value="">-- Select a venue --</option>
+                    </select>
+                    <span asp-validation-for="VenueID" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="EventDate" class="form-label">Event Date</label>
+                        <input asp-for="EventDate" type="date" class="form-control" />
+                        <span asp-validation-for="EventDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="StartTime" class="form-label">Start Time</label>
+                        <input asp-for="StartTime" type="time" class="form-control" />
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="RegistrationDeadline" class="form-label">
+                        Registration Deadline
+                    </label>
+                    <input asp-for="RegistrationDeadline" type="date" class="form-control" />
+                    <span asp-validation-for="RegistrationDeadline" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="BannerImage" class="form-label">Event Banner Image</label>
+                    <input asp-for="BannerImage" type="file"
+                           class="form-control"
+                           accept=".jpg,.jpeg,.png,.gif,.webp" />
+                    <small class="text-muted">
+                        Accepted formats: JPG, PNG, GIF and WEBP. Maximum size: 5 MB.
+                    </small>
+                    <span asp-validation-for="BannerImage" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        Create Event
+                    </button>
+
+                    <a asp-controller="Organiser" asp-action="Events"
+                       class="btn btn-outline-secondary">
+                        Cancel
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

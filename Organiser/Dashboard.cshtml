@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Organiser Dashboard";
+}
+
+<div class="container py-5">
+
+    <div class="p-5 mb-4 bg-dark text-white rounded-3">
+        <h1 class="display-5 fw-bold">
+            Organiser Dashboard
+        </h1>
+
+        <p class="lead">
+            Manage your sporting events and participants
+            from one place.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow p-4 h-100">
+                <h4>📅 Manage Events</h4>
+                <p>Create, update and delete sporting events.</p>
+                <a href="/Organiser/Events"
+                   class="btn btn-primary">
+                    Manage Events
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-4 h-100">
+                <h4>👥 Enrolments</h4>
+                <p>View participants registered for your events.</p>
+                <a href="/Organiser/Enrolments"
+                   class="btn btn-primary">
+                    View Enrolments
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-4 h-100">
+                <h4>🏆 Race Results</h4>
+                <p>Record finishing times and participant positions.</p>
+                <a href="/Organiser/Results"
+                   class="btn btn-primary">
+                    Manage Results
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-4 h-100">
+                <h4>🏷️ Categories</h4>
+                <p>Manage the categories available for your events.</p>
+                <a href="/Organiser/Categories"
+                   class="btn btn-primary">
+                    Manage Categories
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5">
+        <form asp-controller="Account"
+              asp-action="Logout"
+              method="post">
+            <button type="submit"
+                    class="btn btn-outline-danger">
+                Sign Out
+            </button>
+        </form>
+    </div>
+
+</div>

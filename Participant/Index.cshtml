@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Participant Dashboard";
+}
+
+<div class="container py-5">
+
+    <div class="p-5 mb-4 bg-primary text-white rounded-3">
+        <h1 class="display-5 fw-bold">
+            Welcome to RaceDay!
+        </h1>
+
+        <p class="lead">
+            Your racing journey starts here.
+            Discover events, manage enrolments
+            and track your results.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow h-100 p-3">
+                <h4>🏃 Upcoming Events</h4>
+                <p>Explore upcoming running, walking and cycling events.</p>
+                <a href="/Participant/Events"
+                   class="btn btn-primary">
+                    Browse Events
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow h-100 p-3">
+                <h4>📋 My Enrolments</h4>
+                <p>View the events you have registered for.</p>
+                <a href="/Participant/Enrolments"
+                   class="btn btn-primary">
+                    My Enrolments
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow h-100 p-3">
+                <h4>🏆 My Results</h4>
+                <p>Check your race results and finishing positions.</p>
+                <a href="/Participant/Results"
+                   class="btn btn-primary">
+                    View Results
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-5">
+        <form asp-controller="Account"
+              asp-action="Logout"
+              method="post">
+            <button type="submit"
+                    class="btn btn-outline-danger">
+                Sign Out
+            </button>
+        </form>
+    </div>
+
+</div>
